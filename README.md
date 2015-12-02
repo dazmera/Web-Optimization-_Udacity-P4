@@ -1,3 +1,10 @@
+
+#### Getting started
+
+Note: The code can be accessed and launched from https://github.com/dazmera/Web-Optimization-_Udacity-P4.git
+	   Right click on index.html to open code in a browser. 
+	   Right click on pizza.html(under the folder 'views') to open code in a browser.
+
 #### Part 1: Optimize PageSpeed Insights score for index.html
 
 Steps taken:
