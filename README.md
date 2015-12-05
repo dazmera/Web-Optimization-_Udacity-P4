@@ -1,10 +1,9 @@
 
 #### Getting started
 
-Note: The code can be accessed and launched from https://github.com/dazmera/Web-Optimization-_Udacity-P4.git
-	   Right click on index.html to open code in a browser. 
-	   Right click on pizza.html(under the folder 'views') to open code in a browser.
-
+Note:  code for this project is hosted in GitHub repository https://github.com/dazmera/Web-Optimization-_Udacity-P4.git
+	  Application can be accessed by cloning the github repositary at the above address.   
+	   
 #### Part 1: Optimize PageSpeed Insights score for index.html
 
 Steps taken:
@@ -17,20 +16,16 @@ Steps taken:
 6- Removed Google Font from index.html added font to CSS on page.
 7- Used Kraken to minify profile pic and pizzeria picture
 
-
-
-
 #### Part 2: Optimize Frames per Second in pizza.html
 
 Steps taken:
 
-1- changed the number to 31 for document.addEventListenter instead of max 200 when counting.
-2- Created new variable in the updatePosition called top, and then used that for the var phase calculation.
-
-Resize Pizza Change for Slider
-1- updated width to 100px window.requestAnimationFram(updatePositions);
-2- Moved determineDx function call inside the changePizzaSizes function out of the loop. Selected only the first .randomPizzaContainer in the document.
-3- moved newwidth out of loop since its the same for all elements, instead of looping through each one.
+1) Declared phase as variable outside of the for-loop to prevent it from being created everytime the loop is executed ; 
+2) Declared the sine variable,var sine = document.body.scrollTop / 1250 outside of the for loop will prevent it form being created every time the loop is executed
+2- Cached querySelectorAll() and simplified newWidth
+calculation in changePizzaSizes();
+3- Use screen height to calculate number of pizzas to display rather than 
+having it hard coded to 200 pizzas 
 
  - minified the main.js file and made pizza.html point to that file.
 
