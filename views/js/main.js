@@ -440,7 +440,7 @@ var resizePizzas = function(size) {
      // Fix: Cache the querySelectorAll results in a new variable
      // Tried: Use getElementsByClassName() instead of querySelectorAll() to improve performance - worse results
     // var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
-    var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+    var randomPizzas=document.getElementsByClassName("randomPizzaContainer");
 
     for (var i = 0; i < randomPizzas.length; i++) {
       // Fix: Remove unnecessary calculations and set new width directly
@@ -495,11 +495,11 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
-  // // declared phase as variable outside of the for-loop to prevent it from being created everytime the loop is executed 
-  
+  // Declaring sine = document.body.scrollTop / 1250 outside of the for loop prevent it form being created every time the loop is executed
+  var sine=document.body.scrollTop/1250;
   var phase;
   for (var i = 0; i < items.length; i++) {
-    phase =  Math.sin((document.body.scrollTop / 1250) + (i % 5));
+     phase = Math.sin(sine + i % 5);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -525,15 +525,18 @@ document.addEventListener('DOMContentLoaded', function() {
   var screenHeight = window.screen.height;
   // 80px seemed to be the right number to divide by to get accurate results
   var numberToDisplay= Math.ceil(screenHeight/80) * cols;
+  //declaring the elem variable outside the loop will prevent it from being created every time the loop is executed
+  var elem;
+  var movingPizzas=document.getElementById('movingPizzas1');
   for (var i = 0; i < numberToDisplay; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzas.appendChild(elem);
   }
   updatePositions();
 });
