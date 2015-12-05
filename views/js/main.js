@@ -495,10 +495,11 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
-  // Cache Math.sin calculation outside of the for loop instead of calcuating every time
-  var sine = Math.sin(document.body.scrollTop / 1250);
+  // // declared phase as variable outside of the for-loop to prevent it from being created everytime the loop is executed 
+  
+  var phase;
   for (var i = 0; i < items.length; i++) {
-    var phase =  sine + (i % 5);
+    phase =  Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
